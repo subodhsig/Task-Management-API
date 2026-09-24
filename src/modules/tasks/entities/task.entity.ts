@@ -8,6 +8,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+import type { Relation } from 'typeorm';
+
 import { User } from '../../users/entities/user.entity.js';
 
 @Entity('tasks')
@@ -37,5 +39,5 @@ export class Task {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'user_id' })
-  user: User;
+  user: Relation<User>;
 }
