@@ -24,6 +24,16 @@ export class AuthController {
     status: 409,
     description: 'Email already registered',
   })
+  @ApiResponse({
+    status: 201,
+    description: 'User registered successfully',
+    schema: {
+      example: {
+        id: 1,
+        email: 'john@example.com',
+      },
+    },
+  })
   async register(@Body() registerDto: RegisterDto) {
     return this.authService.register(registerDto);
   }
@@ -41,6 +51,15 @@ export class AuthController {
   @ApiResponse({
     status: 401,
     description: 'Invalid email or password',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Login successful',
+    schema: {
+      example: {
+        accessToken: ' return token',
+      },
+    },
   })
   login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
