@@ -3,9 +3,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import appConfig from '../configs/app.config.js';
 import databaseConfig from '../configs/database.config.js';
-import { AuthModule } from '../modules/auth/auth.module.js';
-import { UsersModule } from '../modules/users/users.module.js';
-import { TasksModule } from '../modules/tasks/tasks.module.js';
 
 @Module({
   imports: [
@@ -30,9 +27,6 @@ import { TasksModule } from '../modules/tasks/tasks.module.js';
         synchronize: false,
       }),
     }),
-    AuthModule,
-    UsersModule,
-    TasksModule,
   ],
 })
 export class AppModule {}
