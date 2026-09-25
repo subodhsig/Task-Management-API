@@ -25,7 +25,14 @@ async function bootstrap() {
     .setTitle('Task Management API')
     .setDescription('REST API for managing tasks')
     .setVersion('1.0')
-    .addBearerAuth()
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+      'access-token',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app as any, config);
