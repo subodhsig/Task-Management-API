@@ -1,240 +1,118 @@
-# Task Management API
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-A REST API for managing tasks. This project is built using NestJS, PostgreSQL, TypeORM and JWT authentication.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-## Tech Stack
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-- Node.js
-- NestJS
-- TypeScript
-- PostgreSQL
-- TypeORM
-- JWT
-- Passport
-- bcrypt
-- class-validator
-- Swagger
-- Docker
+## Description
 
-## Features
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-- User registration
-- User login
-- JWT authentication
-- Password hashing using bcrypt
-- Create, read, update and delete tasks
-- Users can only access their own tasks
-- Task pagination
-- Task completion status
-- Soft delete for tasks
-- Request validation
-- Global error handling
-- Swagger API documentation
-
-## Requirements
-
-- Node.js
-- pnpm
-- Docker
-- Docker Compose
-
-## Installation
-
-Clone the repository:
+## Project setup
 
 ```bash
-git clone <repository-url>
-cd task-management-api
+$ yarn install
 ```
 
-Install dependencies:
+## Compile and run the project
 
 ```bash
-pnpm install
+# development
+$ yarn run start
+
+# watch mode
+$ yarn run start:dev
+
+# production mode
+$ yarn run start:prod
 ```
 
-## Environment Variables
-
-Create a `.env` file in the root directory and take references from .env.example for env variables.
-
-## Database Setup
-
-Start PostgreSQL using Docker:
+## Run tests
 
 ```bash
-docker compose up -d
+# unit tests
+$ yarn run test
+
+# e2e tests
+$ yarn run test:e2e
+
+# test coverage
+$ yarn run test:cov
 ```
 
-Run the database migrations:
+## Deployment
+
+When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+
+If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
 ```bash
-pnpm run migration:run
+$ yarn install -g @nestjs/mau
+$ mau deploy
 ```
 
-To generate a new migration:
+With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-```bash
-pnpm run migration:generate src/database/migrations/MigrationName
-```
+## Observability
 
-To revert the last migration:
+In production applications, observability is essential for understanding how your system behaves, detecting issues early, and maintaining reliable performance.
 
-```bash
-pnpm run migration:revert
-```
+[NestJS Observe](https://observe.nestjs.com) automatically instruments your NestJS application, giving you deep visibility into your system with minimal setup:
 
-## Running the Project
+- **Distributed tracing:** Follow requests across services and understand how they flow through your system.
+- **Waterfall analysis:** Visualize request execution and identify slow operations, bottlenecks, and unexpected delays.
+- **Performance analysis:** Analyze application performance in real time and quickly pinpoint areas that need optimization.
+- **Metrics:** Track key application and infrastructure metrics to understand system health and performance trends.
+- **Logging:** Centralize and correlate logs with traces and other telemetry to make debugging easier.
+- **Error tracking:** Detect errors quickly and investigate their root causes with the surrounding context.
+- **SLA monitoring:** Track service-level objectives and identify when your application is approaching or exceeding defined thresholds.
+- **Alarms and alerts:** Set up alerts for critical errors, performance degradation, SLA violations, and other anomalies so your team can react quickly.
 
-For development:
+This project is already instrumented. Create a free account at [observe.nestjs.com](https://observe.nestjs.com), add an application, and paste the generated app key and secret into the `ObserveModule.forRoot()` call in `src/app.module.ts`.
 
-```bash
-pnpm run start:dev
-```
+The free plan needs no payment details and covers 300,000 events a month. You can also browse the [live demo](https://www.observe-demo.nestjs.com/dashboard) first - the whole dashboard over a busy service's data, with nothing to install.
 
-To build the project:
+## Resources
 
-```bash
-pnpm run build
-```
+Check out a few resources that may come in handy when working with NestJS:
 
-The API will be available at:
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
+- Auto-instrument your application with [NestJS Observe](https://observe.nestjs.com). Distributed tracing, metrics, and logging made easy. Error tracking and performance monitoring for your NestJS applications.
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-```text
-http://localhost:3000
-```
+## Support
 
-## Swagger
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-Swagger documentation is available at:
+## Stay in touch
 
-```text
-http://localhost:3000/api/docs
-```
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-You can use Swagger to register a user, login and test the protected task endpoints.
+## License
 
-## API Endpoints
-
-### Authentication
-
-| Method | Endpoint         | Description           |
-| ------ | ---------------- | --------------------- |
-| POST   | `/auth/register` | Register a new user   |
-| POST   | `/auth/login`    | Login and receive JWT |
-
-### Tasks
-
-| Method | Endpoint     | Description      |
-| ------ | ------------ | ---------------- |
-| POST   | `/tasks`     | Create a task    |
-| GET    | `/tasks`     | Get user's tasks |
-| GET    | `/tasks/:id` | Get a task       |
-| PATCH  | `/tasks/:id` | Update a task    |
-| DELETE | `/tasks/:id` | Delete a task    |
-
-All task endpoints require a valid JWT access token.
-
-## Pagination
-
-The task list supports pagination using `page` and `limit`.
-
-Example:
-
-```text
-GET /tasks?page=1&limit=10
-```
-
-If no values are provided, the API uses:
-
-- Page: 1
-- Limit: 10
-
-The maximum limit is 100.
-
-## Task Update
-
-A task can be updated using:
-
-```json
-{
-  "title": "Complete assessment",
-  "description": "Finish the backend assessment",
-  "isCompleted": true
-}
-```
-
-All update fields are optional.
-
-## Task Deletion
-
-Tasks use soft deletion.
-
-When a task is deleted, it is not physically removed from the database. TypeORM stores the deletion time in the `deleted_at` column, and deleted tasks are excluded from normal task queries.
-
-## Validation
-
-The API validates incoming requests using `class-validator`.
-
-Some examples:
-
-- Email must be valid.
-- Password must contain at least 6 characters.
-- Task title is required when creating a task.
-- Page and limit must contain valid numbers.
-- `isCompleted` must be a boolean.
-- Unknown request fields are rejected.
-
-## Authentication and Authorization
-
-Passwords are hashed using bcrypt before being stored.
-
-After login, the API returns a JWT access token. The token must be sent with protected requests using:
-
-```text
-Authorization: Bearer <access-token>
-```
-
-Users can only access and modify their own tasks.
-
-## Error Responses
-
-The API returns consistent error responses.
-
-Example:
-
-```json
-{
-  "statusCode": 404,
-  "message": "Task not found",
-  "path": "/tasks/10",
-  "timestamp": "2026-09-25T00:00:00.000Z"
-}
-```
-
-Common status codes:
-
-- `400` - Invalid request or validation error
-- `401` - Authentication required or invalid token
-- `403` - User does not have access
-- `404` - Resource not found
-- `409` - Email already registered
-- `500` - Internal server error
-
-## Project Structure
-
-```text
-src/
-├── common/
-├── configs/
-├── database/
-├── modules/
-│   ├── auth/
-│   ├── users/
-│   └── tasks/
-├── app/
-└── main.ts
-```
-
-```bash
-pnpm run build
-```
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
